@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
  
-public class FisshingCompany
+public class FishingCompany
 {
 
 
@@ -14,7 +14,6 @@ public class FisshingCompany
     string TUNA   = "T";
     string SALMON = "S";
     string EMPTY  = "~";
-
 
     // The board below represents the ocean. It's an array of array of strings (a 2 dimensional Array). Don't let the weird syntax confuse you. It's just a fancy way of defining an array of strings. Each depth is actual an array of strings. Each tile is either empty (~) or has fish: SALMON (S) or TUNA (T)
 
@@ -30,9 +29,6 @@ public class FisshingCompany
     //}
     // => => Forward direction => =>
 
-    // Console.WriteLine(TUNA);
-    // Console.WriteLine(SALMON);
-    // Console.WriteLine(EMPTY);
     Console.WriteLine("\n============   @Welcome to Fishing Company (FC™)   ============\n\nThe  Fishing Company (FC™) has invented a new form of fishing: Underwater fishing!!! ZOMG!\nOur new protoype deep sea vessel (The DEEP-FISHR-9000) needs to be deployed ASAP... \nWhy you ask? Because the ocean is running out of fish and we need to take deep sea fishing to a whole new level baby!\n\n");
  
     Console.WriteLine("This is the array representing the ocean:\n");
@@ -48,17 +44,50 @@ public class FisshingCompany
       Console.Write("   -> Depth of -"+ deep);
       Console.WriteLine("");
     }
-    Console.WriteLine("\n");
 
-    Console.Write("Lets start fishig!, as you can see you will need to select a Tile Number and a Depth\nEnter depth (0-3): ");
-    int depth = int.Parse(Console.ReadLine());
-    Console.Write("Enter Tile you want to go (0-9): ");
-    int tile = int.Parse(Console.ReadLine());
+    Console.Write("\nWould you like to start the game?  ");
+    string decision = Console.ReadLine().ToLower();
 
-    //notes: depth is 0,1,2,3 and tiles goes from 0 to 9.
-    Console.WriteLine("This is what you got: " + BOARD[depth,tile] +"\n");
+    while(decision == "yes"){ //--start while loop --
 
-    // Debug.Indent();
+      Console.Write("\nLets start fishig!, as you can see you will need to select a Tile Number and a Depth\nEnter depth (0-3): ");
+      int depth = int.Parse(Console.ReadLine());
+      while(depth > 3 || depth < 0){
+        Console.Write("Please enter a valid value (0-3): ");
+        depth = int.Parse(Console.ReadLine());
+      }
+
+      Console.Write("\nEnter Tile (0-9): ");
+      int tile = int.Parse(Console.ReadLine());
+      while(tile > 9 || depth < 0){
+        Console.Write("Please enter a valid Tile (0-9): ");
+        tile = int.Parse(Console.ReadLine());
+      }
+
+      string result = BOARD[depth,tile];
+      //notes: depth is 0,1,2,3 and tiles goes from 0 to 9.
+      Console.WriteLine("This is what you got: " + result +"\n");
+
+      switch (result){
+        case "T":
+          Console.WriteLine("You got TUNA in your basket!");
+          break;
+        case "S":
+          Console.WriteLine("You got SALMON in your basket");
+          break;
+        default:
+          Console.WriteLine("You got NOTHING, sorry. Try again!");
+          break;
+      }
+
+
+      Console.Write("\nWould you like to keep fishing?   ");
+      decision = Console.ReadLine().ToLower();
+    } //-- END while loop --
+
+    
+
+    
 
 
 
