@@ -4,8 +4,34 @@ using System.Diagnostics;
  
 public class FishingCompany
 {
+  class Fish{
 
+    public double weight { get; set; }
+    public double value { get; set; } 
 
+    public Fish(){
+      this.weight = 0;
+      this.value = 0;
+      numberOfFishes++;
+    }
+
+    public Fish(double value = 0, double weight = 0){
+      this.value = value;
+      this.weight = weight;
+      numberOfFishes++;
+    }
+
+    static int numberOfFishes = 0;
+
+    public static int getNumberOfFishes(){
+      return numberOfFishes;
+    }
+
+    
+    public string infoFishes(){
+      return String.Format("\n You have found" + getNumberOfFishes() + " fishes today!");
+    }
+  }
 
 
   static public void Main ()
