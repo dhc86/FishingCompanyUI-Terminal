@@ -1,9 +1,32 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
- 
+
 public class FishingCompany
 {
+
+  class Player{
+    public string name { get; set;}
+    public int life { get; set; }
+    
+    public Player(){
+        this.name = "<NO NAME ENTERED YET>";
+        this.life = 3;
+    }
+    
+    public Player(string name, int life){
+        this.name = name;
+        this.life = life;
+    }
+
+    public string playerInfo(){
+      return String.Format("here goes player info");
+    }
+
+  }
+
+
+
   class Fish{
 
     public double value { get; set; } 
@@ -58,7 +81,7 @@ public class FishingCompany
     }
 
     public string infoTuna(){
-      return String.Format("\n You have found" + getNumberOfTuna() + " Tuna today!");
+      return String.Format("\n You have found" + getNumberOfTuna() + " Tuna today! ");
     }
 
     new public string infoFishes(){
@@ -124,8 +147,59 @@ public class FishingCompany
 
   }
 
+
+
+  // public static string displayImage( string[] image){
+  //   switch (image){
+
+      // case "gameover":
+      //  string[] gameover = {
+      //     @"                 ()",
+      //     @"          ,        O        _____________",
+      //     @" -.       )',              |             |",
+      //     @"  \'._.,-' c '-,_  o       |  GAME OVER  |",
+      //     @"   ) _,.c cc =[]L]         |_____________|",
+      //     @"  /."   ',  c  __.`",
+      //     @" -'       \('---' ",
+      //     @"           '=.____",
+      //     @"                  '-.           O",
+      //     @"                     \        0 ",
+      //     @"                   ,  \|\_/)    ",
+      //     @"             \-,   |',T(  66,_ o",
+      //     @"              ) '-"    \\.___Y)",
+      //     @"              ) ,-.Y  _.G",
+      //     @"        snd  /-"   /.'""
+      //   };
+      //   return gameover;
+
+
+
+      // case "submarine":
+      //   string[] submarine = {
+      //     @"                            ?",
+      //     @" ~~~~~~~~~~~~~~~~~~~~~~~~~~~|^'~~~~~~~~~~~~~~~~~~~~~~~~~o~~~~~~~~~~~",
+      //     @"        o                   |                  o      __o",
+      //     @"         o                  |                 o     |X__>",
+      //     @"       ___o                 |                __o",
+      //     @"     (X___>--             __|__            |X__>     o",
+      //     @"                         |     \                   __o",
+      //     @"                         |      \                |X__>",
+      //     @"  _______________________|_______\________________",
+      //     @" <                                                \____________   _",
+      //     @"  \                                                            \ (_)",
+      //     @"   \    O       O       O        SUBMARINE!!                       >=)",
+      //     @"    \__________________________________________________________/ (_)"
+      //     };
+      //     return submarine;
+
+  //   }
+
+  // }
+
+
   static public void Main ()
   {
+
  
     // The board below represents the ocean. It's an array of array of strings (a 2 dimensional Array). Don't let the weird syntax confuse you. It's just a fancy way of defining an array of strings. Each depth is actual an array of strings. Each tile is either empty (~) or has fish: SALMON (S) or TUNA (T)
 
@@ -141,7 +215,31 @@ public class FishingCompany
     //}
     // => => Forward direction => =>
 
-    Console.WriteLine("\n============   @Welcome to Fishing Company (FC™)   ============\n\nThe  Fishing Company (FC™) has invented a new form of fishing: Underwater fishing!!! ZOMG!\nOur new protoype deep sea vessel (The DEEP-FISHR-9000) needs to be deployed ASAP... \nWhy you ask? Because the ocean is running out of fish and we need to take deep sea fishing to a whole new level baby!\n\n");
+    Console.WriteLine("\n============   @Welcome to Fishing Company (FC™)   ============\n\nThe  Fishing Company (FC™) has invented a new form of fishing: Underwater fishing!!! ZOMG!\nOur new protoype deep sea vessel (The DEEP-FISHR-9000) needs to be deployed ASAP... \nWhy you ask? Because the ocean is running out of fish and we need to take deep sea fishing to a whole new level baby!\n");
+    string[] introImage = {
+      @" ..        ,'''',  ..:::::;;;;;;;;:::::::...         ^^",
+      @" :::.     ;,'''',;'''''''''''''''''''''''''''      __---""""-_",
+      @" ;;;;::.  ;| , ,|            __,--'""""--_       ,'  ..  . :. '-_.. ...",
+      @" '''''''' (,  _)|)       _,-'..   :   :   '-.   /   .:  .: ': :. \:::::::..",
+      @"           |.__,|  __--"".  .:'. ;' ..;. _-, \,'   .;' .:'  :. :. \;;;;;;;;::",
+      @"          _\_   /"".....;:..:;...:::::_-'_-|-' ....;...:'   ':.';. \'''''''''';",
+      @" ___---""' _| _|:::::;;::::;:::::::_-'_-'-'\.:::::;:::;:::::::;::;:.'X-_     ,;",
+      @" ::::;;:::/  \  \;;;;;;;;;;;;;;;;-'_-'-'..;;\;;;;;;;;;;;;;;;;;;;;;:::::'-_-;;:.",
+      @" ;;;;;;;;|.   \ /|\___,----.__-'_-'___;;;;''_\__,---'""""'----._';;;;;;;;;'-___",
+      @" --'''--\:.|  ; |:\ ..::._-'_-'      """"""   \  ..::::::. .::. '""-._  _,-'""",
+      @" ..:..::..\:.\ : |_ '-__-'_-.:.. ..::::..::..  \       ...    .::::.. '' ..::.",
+      @" ----^----|\::'-_|_',-'_o'-----^------^---^-----\-----^--------------^---------",
+      @" ;;;;;;;;;|;'-_  /_'_OOO;;;;;;;;;;;;;;;;;;;;;;;;;\;;;;;;;;;;;;;;;;;;;;;;;;;;;;;",
+      @" ::::^::::|;:. :-(/)'::::::::::::::v::::::::::::::\::::::::::::::::::::::::::::",
+      @" .........|:::.: |''...........................v...\_...v.............v.......",
+      @"          \____:_|       ^                            \___      ^",
+      @"          |@@;/0;|                                        v___ __ __--___---_ -_'",
+      @"    ^    ^|@@;|0;|                    v                           (  ( ''' )  )",
+      @"      _   |@@;|@;| _            ^         ^            ^           '-  ---  -'",
+    };
+    for(int i = 0; i < introImage.Length; i++ ){
+      Console.WriteLine(introImage[i]);
+    }
  
     Console.WriteLine("This is the array representing the ocean:\n");
     Console.WriteLine(" 0 1 2 3 4 5 6 7 8 9   -> Tile Number");
@@ -177,7 +275,7 @@ public class FishingCompany
       //   Console.WriteLine("data type :     ----> " + depth.GetType());
       //   Console.Write("Please enter a valid Tile NUMBER (0-9): ");
       //   depth = int.Parse(Console.ReadLine());
-      // }
+      // } Convert
       while(depth > 3 || depth < 0){
         Console.Write("Please enter a valid value (0-3): ");
         depth = int.Parse(Console.ReadLine());
@@ -195,6 +293,19 @@ public class FishingCompany
         tile = int.Parse(Console.ReadLine());
       }
 
+      // public string getImages(){
+
+
+      //   string[] array3 = {1,2,3,45};
+
+
+      // var array = displayImage(shark); 
+
+      // for(int i = 0; i < array.Length; i++ ){
+      //   Console.WriteLine(array[i]);
+      // }
+      
+
 
 
       string result = BOARD[depth,tile];
@@ -206,20 +317,61 @@ public class FishingCompany
           Console.WriteLine("You got TUNA in your basket!");
           Tuna tunaFish = new Tuna();
           tunaFish = new Tuna(10, 25, "Flipper", true);
+          string[] tuna = {
+            @" `         /",
+            @"  .    ,../...       .",
+            @"   .  /       `\  /  .           YOU FOUND TUNA!",
+            @"     < '  )     =<",
+            @"      \ \      /  \   .  __",
+            @"       `'\'''''       "
+          };
+          for(int i = 0; i < tuna.Length; i++ ){
+            Console.WriteLine(tuna[i]);
+          }
           Console.Write(tunaFish.infoFishes());
-          Console.Write(tunaFish.infoTuna());
+          Console.WriteLine(tunaFish.infoTuna());
+          Console.Write("Tuna information captured : name = {0}, sushiable = {1} " ,tunaFish.name, tunaFish.sushiable);
           break;
+
         case "S":
           Console.WriteLine("You got SALMON in your basket");
           Salmon salmonFish = new Salmon();
           salmonFish = new Salmon(10, 25, "Flipper", false);
+          string[] salmon = {
+            @"         ,///;,          //",
+            @"    ..:::::::::::::;;...///      YOU FOUND A SALMON!",
+            @"  @;:::::::::::::::;;;;///",
+            @" >::::::::::::::::;;;;\\\",
+            @"   ':::::::::::::::::;;:\\\",
+            @"       '''\\\\\'''       '\\",
+            @"             ''     "
+          };
+          for(int i = 0; i < salmon.Length; i++ ){
+            Console.WriteLine(salmon[i]);
+          }
           Console.Write(salmonFish.infoFishes());
           Console.Write(salmonFish.infoSalmon());
           break;
+
         case "H":
           Console.WriteLine("You got SHARK in your basket");
           Shark sharkFish = new Shark();
           sharkFish = new Shark(10, 25, "Flipper", false);
+          string[] shark = {
+            @"                       __",
+            @"    o                 /' )        SHARK     -1 point, sorry :(",
+            @"                    /'   (                          ,",
+            @"                __/'     )                        .' `;",
+            @" o      _.-~~~~'          ``---..__             .'   ;",
+            @"   _.--'   b)                      ``--...____.'   .'",
+            @"  (     _.      )).      `-._                     <",
+            @"   `vvvvvvv-)-.....___.-     `-.         __...--'-.'.",
+            @"     `^^^^^'-------.....`-.___.'----... .'         `.;",
+            @"                                jgs    `-`           ` ",
+          };
+          for(int i = 0; i < shark.Length; i++ ){
+            Console.WriteLine(shark[i]);
+          }
           Console.Write(sharkFish.infoFishes());
           Console.Write(sharkFish.infoShark());
           break;
@@ -235,17 +387,6 @@ public class FishingCompany
         Console.Write("Please enter yes or no  ");
         decision = Console.ReadLine().ToLower();
       }
-
     } //-- END while loop --
-
-    
-
-    
-
-
-
-
-
-
   }
 }
