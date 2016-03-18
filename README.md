@@ -16,3 +16,9 @@ Without the success of this prototype vessel, The FC™ will *GO UNDER*! (pun ve
 
 Read the `ocean.cs` code first and make sure you understand everything in there, especially the BOARD.
 
+From terminal complile:
+`mcs practice.cs` 
+
+Run program: 
+`mono practice.exe`
+
